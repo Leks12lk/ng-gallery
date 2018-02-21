@@ -1,0 +1,87 @@
+﻿@import "_variables.scss";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+
+.navbar {
+    &.navbar-inverse {
+        background-color: $main-color;
+
+        & .navbar-header {
+            float: none;
+
+            & .navbar-brand {
+                float: none;
+                font-size:22px;
+
+                & img {
+                    display: inline-block;
+                    height: 60px;
+                }
+            }
+        }
+    }
+}
+
+.card {
+    padding: 0 20px 20px 20px;
+}
+
+.pagination > .active > a, 
+.pagination > .active > span, 
+.pagination > .active > a:hover, 
+.pagination > .active > span:hover, 
+.pagination > .active > a:focus, 
+.pagination > .active > span:focus {
+    background-color: $main-color;
+    border-color: $main-color;
+    cursor: pointer;
+}
+
+.pagination {
+    & span {
+         cursor: pointer;
+    }
+}
+
+.tooltip {
+    font-size: 14px;
+
+    & .tooltip-arrow,
+    & .arrow {
+         display: inline;
+    }
+
+    &.top .tooltip-arrow,
+    &.top-left .tooltip-arrow,
+    &.top-right .tooltip-arrow {
+        border-top-color: $tooltip-color;
+    }
+    &.right .tooltip-arrow  {
+        border-right-color: $tooltip-color;
+    }
+    &.left .tooltip-arrow  {
+        border-left-color: $tooltip-color;
+    }
+    &.bottom .tooltip-arrow,
+    &.bottom-left .tooltip-arrow,
+    &.bottom-right .tooltip-arrow {
+        border-bottom-color: $tooltip-color;
+    }
+}
+.tooltip-inner {
+    width: 200px;
+}
+
+.modal {
+    display:block;
+
+    & .modal-content {
+        & .modal-body {
+            padding-top: 0;
+            font-size: 22px;
+        }
+    }
+}
+

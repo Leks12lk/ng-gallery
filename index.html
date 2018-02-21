@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <title>Gallery with AngularJS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">	
+
+    <!-- bootstrap and material-bootstrap styles -->
+    <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="libs/material-design/css/bootstrap-material-design.css" rel="stylesheet" />
+    <link href="libs/material-design/css/ripples.css" rel="stylesheet" />
+    <!-- main custom style -->
+    <link href="style/main.min.css" rel="stylesheet" />
+    <!-- jquery - it's needed for material-bootstrap -->
+    <script src="libs/jquery-3.1.1.min.js"></script>
+</head>
+<body ng-cloak>
+    <div class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header text-center">
+                <span class="navbar-brand">
+                    Gallery with
+                    <img src="img/ng-logo.png" title="AngularJS" alt="AngularJS" />
+                </span>
+            </div>
+        </div>
+    </div>
+    <div ng-controller="photoCtrl as photoCtrl">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="card">
+                        <h2>{{photoCtrl.activePhoto.title}}</h2>
+                        <img ng-src="{{photoCtrl.activePhoto.img}}" class="img-responsive" alt="{{photoCtrl.activePhoto.title}}"
+                             data-toggle="tooltip" data-placement="right" title="{{photoCtrl.activePhoto.description}}"
+                             data-original-title="{{photoCtrl.activePhoto.description}}" />
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <ul class="pagination">
+                                <li ng-class="{disabled: photoCtrl.currentPage === 1}" ng-click="photoCtrl.goPrev()">
+                                    <span>«</span>
+                                </li>
+                                <li ng-repeat="page in photoCtrl.pages" ng-class="{active: page === photoCtrl.currentPage}" ng-click="photoCtrl.setActivePage(page)">
+                                    <span>{{page}}</span>
+                                </li>
+                                <li ng-class="{disabled: photoCtrl.currentPage === photoCtrl.pages.length}" ng-click="photoCtrl.goNext()">
+                                    <span>»</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <button type="button" class="btn btn-info btn-raised" ng-click="photoCtrl.shuffle()">Shuffle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- error modal popup -->
+            <div class="modal" ng-if="photoCtrl.isError">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" ng-click="photoCtrl.closeErrorPopup()" aria-hidden="true">×</button>                           
+                        </div>
+                        <div class="modal-body text-center">
+                            <p>{{photoCtrl.errorMessage}}</p>
+                        </div>                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // material-bbotstrap initializing
+            $.material.init();
+            // tooltip initializing - for tooltip when mouseover
+            $('[data-toggle="tooltip"]').tooltip();
+        })
+    </script>
+
+    <script src="libs/bootstrap/js/bootstrap.js"></script>
+    <script src="libs/material-design/js/material.js"></script>
+    <script src="libs/material-design/js/ripples.js"></script>
+
+    <script src="libs/lodash.min.js"></script>
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/angular-local-storage.min.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <!-- storage emulator if application is run from file system (not from server host or localhost) -->
+    <script src="data/photosData.js"></script>
+    <script src="scripts/factories/photoFactory.js"></script>
+    <script src="scripts/controllers/photoCtrl.js"></script> 
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿/*the base color*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
+.navbar.navbar-inverse {
+  background-color: #0fb2fc; }
+  .navbar.navbar-inverse .navbar-header {
+    float: none; }
+    .navbar.navbar-inverse .navbar-header .navbar-brand {
+      float: none;
+      font-size: 22px; }
+      .navbar.navbar-inverse .navbar-header .navbar-brand img {
+        display: inline-block;
+        height: 60px; }
+
+.card {
+  padding: 0 20px 20px 20px; }
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #0fb2fc;
+  border-color: #0fb2fc;
+  cursor: pointer; }
+
+.pagination span {
+  cursor: pointer; }
+
+.tooltip {
+  font-size: 14px; }
+  .tooltip .tooltip-arrow,
+  .tooltip .arrow {
+    display: inline; }
+  .tooltip.top .tooltip-arrow,
+  .tooltip.top-left .tooltip-arrow,
+  .tooltip.top-right .tooltip-arrow {
+    border-top-color: rgba(101, 101, 101, 0.91); }
+  .tooltip.right .tooltip-arrow {
+    border-right-color: rgba(101, 101, 101, 0.91); }
+  .tooltip.left .tooltip-arrow {
+    border-left-color: rgba(101, 101, 101, 0.91); }
+  .tooltip.bottom .tooltip-arrow,
+  .tooltip.bottom-left .tooltip-arrow,
+  .tooltip.bottom-right .tooltip-arrow {
+    border-bottom-color: rgba(101, 101, 101, 0.91); }
+
+.tooltip-inner {
+  width: 200px; }
+
+.modal {
+  display: block; }
+  .modal .modal-content .modal-body {
+    padding-top: 0;
+    font-size: 22px; }
+
